@@ -14,6 +14,7 @@ import (
 	"github.com/spf13/pflag"
 	"gocloud.dev/blob"
 	_ "gocloud.dev/blob/fileblob"
+	_ "gocloud.dev/blob/s3blob"
 	"gocloud.dev/gcerrors"
 )
 

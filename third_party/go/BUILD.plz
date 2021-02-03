@@ -15,6 +15,614 @@ config_setting(
 )
 
 go_mod_download(
+    name = "github.com__aws__aws-sdk-go",
+    _tag = "download",
+    module = "github.com/aws/aws-sdk-go",
+    version = "v1.36.1",
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__endpoints",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__arn",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/arn"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__awserr",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/awserr"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__awsutil",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/awsutil"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__jmespath__go-jmespath"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__client",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/client"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkrand",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__client__metadata",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/client/metadata"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__corehandlers",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/corehandlers"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__credentials",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/credentials"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__internal__ini",
+        ":github.com__aws__aws-sdk-go__internal__shareddefaults",
+        ":github.com__aws__aws-sdk-go__internal__sync__singleflight",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__credentials__ec2rolecreds",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/credentials/ec2rolecreds"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__ec2metadata",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkuri",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__credentials__endpointcreds",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/credentials/endpointcreds"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__private__protocol__json__jsonutil",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__credentials__processcreds",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/credentials/processcreds"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__credentials__stscreds",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/credentials/stscreds"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkrand",
+        ":github.com__aws__aws-sdk-go__service__sts",
+        ":github.com__aws__aws-sdk-go__service__sts__stsiface",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__csm",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/csm"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__defaults",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/defaults"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__corehandlers",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__credentials__ec2rolecreds",
+        ":github.com__aws__aws-sdk-go__aws__credentials__endpointcreds",
+        ":github.com__aws__aws-sdk-go__aws__ec2metadata",
+        ":github.com__aws__aws-sdk-go__aws__endpoints",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__shareddefaults",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__ec2metadata",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/ec2metadata"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__corehandlers",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkuri",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__endpoints",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/endpoints"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__aws__aws-sdk-go__aws__awserr"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__request",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/request"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__awsutil",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__session",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/session"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__corehandlers",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__credentials__processcreds",
+        ":github.com__aws__aws-sdk-go__aws__credentials__stscreds",
+        ":github.com__aws__aws-sdk-go__aws__csm",
+        ":github.com__aws__aws-sdk-go__aws__defaults",
+        ":github.com__aws__aws-sdk-go__aws__endpoints",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__ini",
+        ":github.com__aws__aws-sdk-go__internal__shareddefaults",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__aws__signer__v4",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["aws/signer/v4"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+        ":github.com__aws__aws-sdk-go__internal__strings",
+        ":github.com__aws__aws-sdk-go__private__protocol__rest",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__ini",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/ini"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__aws__aws-sdk-go__aws__awserr"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__s3shared",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/s3shared"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__arn",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__s3shared__arn",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__s3shared__arn",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/s3shared/arn"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__aws__aws-sdk-go__aws__arn"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__s3shared__s3err",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/s3shared/s3err"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__sdkio",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/sdkio"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__sdkmath",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/sdkmath"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__sdkrand",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/sdkrand"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__sdkuri",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/sdkuri"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__shareddefaults",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/shareddefaults"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__strings",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/strings"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__internal__sync__singleflight",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["internal/sync/singleflight"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__checksum",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/checksum"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkmath",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__eventstream",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/eventstream"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__aws__aws-sdk-go__aws"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__eventstream__eventstreamapi",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/eventstream/eventstreamapi"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__private__protocol",
+        ":github.com__aws__aws-sdk-go__private__protocol__eventstream",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__json__jsonutil",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/json/jsonutil"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__private__protocol",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__query",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/query"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__private__protocol__query__queryutil",
+        ":github.com__aws__aws-sdk-go__private__protocol__xml__xmlutil",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__query__queryutil",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/query/queryutil"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__aws__aws-sdk-go__private__protocol"],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__rest",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/rest"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__strings",
+        ":github.com__aws__aws-sdk-go__private__protocol",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__restxml",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/restxml"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__private__protocol__query",
+        ":github.com__aws__aws-sdk-go__private__protocol__rest",
+        ":github.com__aws__aws-sdk-go__private__protocol__xml__xmlutil",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__private__protocol__xml__xmlutil",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["private/protocol/xml/xmlutil"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__private__protocol",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__service__s3",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["service/s3"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__arn",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__awsutil",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__endpoints",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__aws__signer__v4",
+        ":github.com__aws__aws-sdk-go__internal__s3shared",
+        ":github.com__aws__aws-sdk-go__internal__s3shared__arn",
+        ":github.com__aws__aws-sdk-go__internal__s3shared__s3err",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+        ":github.com__aws__aws-sdk-go__private__checksum",
+        ":github.com__aws__aws-sdk-go__private__protocol",
+        ":github.com__aws__aws-sdk-go__private__protocol__eventstream",
+        ":github.com__aws__aws-sdk-go__private__protocol__eventstream__eventstreamapi",
+        ":github.com__aws__aws-sdk-go__private__protocol__rest",
+        ":github.com__aws__aws-sdk-go__private__protocol__restxml",
+        ":github.com__aws__aws-sdk-go__private__protocol__xml__xmlutil",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__service__s3__s3iface",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["service/s3/s3iface"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__service__s3",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__service__s3__s3manager",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["service/s3/s3manager"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__awsutil",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__corehandlers",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__internal__sdkio",
+        ":github.com__aws__aws-sdk-go__service__s3",
+        ":github.com__aws__aws-sdk-go__service__s3__s3iface",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__service__sts",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["service/sts"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awsutil",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__client__metadata",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__aws__signer__v4",
+        ":github.com__aws__aws-sdk-go__private__protocol__query",
+    ],
+)
+
+go_module(
+    name = "github.com__aws__aws-sdk-go__service__sts__stsiface",
+    download = ":_github.com__aws__aws-sdk-go#download",
+    install = ["service/sts/stsiface"],
+    module = "github.com/aws/aws-sdk-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__service__sts",
+    ],
+)
+
+go_mod_download(
     name = "github.com__golang__groupcache",
     _tag = "download",
     module = "github.com/golang/groupcache",
@@ -110,6 +718,22 @@ go_module(
 )
 
 go_mod_download(
+    name = "github.com__google__wire",
+    _tag = "download",
+    module = "github.com/google/wire",
+    version = "v0.4.0",
+)
+
+go_module(
+    name = "github.com__google__wire",
+    download = ":_github.com__google__wire#download",
+    install = ["."],
+    module = "github.com/google/wire",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
     name = "github.com__googleapis__gax-go",
     _tag = "download",
     module = "github.com/googleapis/gax-go",
@@ -127,6 +751,22 @@ go_module(
         ":google.golang.org__grpc__codes",
         ":google.golang.org__grpc__status",
     ],
+)
+
+go_mod_download(
+    name = "github.com__jmespath__go-jmespath",
+    _tag = "download",
+    module = "github.com/jmespath/go-jmespath",
+    version = "v0.4.0",
+)
+
+go_module(
+    name = "github.com__jmespath__go-jmespath",
+    download = ":_github.com__jmespath__go-jmespath#download",
+    install = ["."],
+    module = "github.com/jmespath/go-jmespath",
+    visibility = ["PUBLIC"],
+    deps = [],
 )
 
 go_mod_download(
@@ -340,6 +980,21 @@ go_mod_download(
 )
 
 go_module(
+    name = "gocloud.dev__aws",
+    download = ":_gocloud.dev#download",
+    install = ["aws"],
+    module = "gocloud.dev",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__credentials",
+        ":github.com__aws__aws-sdk-go__aws__session",
+        ":github.com__google__wire",
+    ],
+)
+
+go_module(
     name = "gocloud.dev__blob",
     download = ":_gocloud.dev#download",
     install = ["blob"],
@@ -378,6 +1033,28 @@ go_module(
         ":gocloud.dev__gcerrors",
         ":gocloud.dev__internal__escape",
         ":gocloud.dev__internal__gcerr",
+    ],
+)
+
+go_module(
+    name = "gocloud.dev__blob__s3blob",
+    download = ":_gocloud.dev#download",
+    install = ["blob/s3blob"],
+    module = "gocloud.dev",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__aws__aws-sdk-go__aws",
+        ":github.com__aws__aws-sdk-go__aws__awserr",
+        ":github.com__aws__aws-sdk-go__aws__client",
+        ":github.com__aws__aws-sdk-go__aws__request",
+        ":github.com__aws__aws-sdk-go__service__s3",
+        ":github.com__aws__aws-sdk-go__service__s3__s3manager",
+        ":github.com__google__wire",
+        ":gocloud.dev__aws",
+        ":gocloud.dev__blob",
+        ":gocloud.dev__blob__driver",
+        ":gocloud.dev__gcerrors",
+        ":gocloud.dev__internal__escape",
     ],
 )
 

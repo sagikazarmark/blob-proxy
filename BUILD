@@ -15,6 +15,7 @@ go_binary(
         "//third_party/go:github.com__spf13__pflag",
         "//third_party/go:gocloud.dev__blob",
         "//third_party/go:gocloud.dev__blob__fileblob",
+        "//third_party/go:gocloud.dev__blob__s3blob",
         "//third_party/go:gocloud.dev__gcerrors",
     ],
 )
