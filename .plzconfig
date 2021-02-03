@@ -3,3 +3,10 @@ version = 15.14.0
 
 [go]
 importpath = github.com/sagikazarmark/blob-proxy
+
+[alias "godeps"]
+desc = Generate third-party dependency rules for a Go project
+cmd = run ///tools/pleasegomod//:godeps -- -dir third_party/go -clean -builtin -wollemi
+
+[featureflags]
+PleaseGoInstall = true
