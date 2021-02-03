@@ -5,7 +5,9 @@
 ![Go Version](https://img.shields.io/badge/go%20version-%3E=1.13-61CFDD.svg?style=flat-square)
 
 
-**Simple HTTP proxy for object stores.**
+**Simple HTTP proxy for object stores (S3, GCS, etc).**
+
+Built for using an object store as cache storage for [Please](https://please.build/).
 
 
 ## Development
